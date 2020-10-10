@@ -10,7 +10,6 @@ app.use(express.static(path.join(__dirname, '../client')));
 app.use(cors());
 
 const Proxy = (targetUrl) => (req, res) => {
-  console.log(req.originalUrl);
   axios.get(targetUrl + req.originalUrl)
     .then((response) => {
       res.send(response.data);
